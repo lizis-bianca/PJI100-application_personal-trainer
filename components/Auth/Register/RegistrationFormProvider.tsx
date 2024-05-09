@@ -1,7 +1,6 @@
 "use client";
 
-import Image from "next/image";
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 import RegisterGymOwnerForm from "./RegisterGymOwnerForm";
 import RegisterMemberForm from "./RegisterMemberForm";
 import { Button } from "@/components/ui/button";
@@ -9,7 +8,6 @@ import { Balancer } from "react-wrap-balancer";
 
 import BenchPress from "@/components/ui/Icons/BenchPress";
 import WeightLift from "@/components/ui/Icons/WeightLift";
-import { AuthState } from "../AuthCard";
 
 type AccountTypes = "member" | "gymOwner" | "";
 
