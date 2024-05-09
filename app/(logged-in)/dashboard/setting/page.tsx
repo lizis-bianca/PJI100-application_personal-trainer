@@ -1,10 +1,10 @@
 "use client";
 
-import Profile from "@/components/Dashboard/Profile/Profile";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import SkeletonProfile from "@/components/Dashboard/Profile/SkeletonProfile";
-import UnexistentProfile from "@/components/Dashboard/Profile/UnexistentProfile";
+import { ModeToggle } from "@/components/ModeToggle";
+import { Separator } from "@/components/ui/separator"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import {
@@ -17,7 +17,6 @@ import {
 } from "@/components/ui/card"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Input } from "@/components/ui/input"
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useSession } from "@/lib/supabase/useSession";
 
 
@@ -50,27 +49,21 @@ export default function SettingPage() {
           <div className="grid gap-6">
             <Card x-chunk="dashboard-04-chunk-1">
               <CardHeader>
-                <CardTitle>Store Name</CardTitle>
+                <CardTitle>Aparência</CardTitle>
                 <CardDescription>
-                  Used to identify your store in the marketplace.
+                  Personalize a aparência do seu dispositivo.
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <form>
-                  <Input placeholder="Store Name" />
-                </form>
+                <div align="center">
+                  <ModeToggle side='right' />
+                </div>
               </CardContent>
-              <CardFooter className="border-t px-6 py-4">
-                <Button>Save</Button>
-              </CardFooter>
             </Card>
             <Card x-chunk="dashboard-04-chunk-2">
               <CardHeader>
-                <CardTitle>Plugins Directory</CardTitle>
-                <CardDescription>
-                  The directory within your project, in which your plugins are
-                  located.
-                </CardDescription>
+                <CardTitle>Minha Conta</CardTitle>
+                <Separator className="mt-4" />
               </CardHeader>
               <CardContent>
                 <form className="flex flex-col gap-4">
