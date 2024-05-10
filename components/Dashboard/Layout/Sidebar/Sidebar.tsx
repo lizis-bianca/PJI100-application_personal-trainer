@@ -24,7 +24,6 @@ import { useQuery } from "@tanstack/react-query";
 import ProfileHoverCard from "../../Profile/ProfileHoverCard";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { UserProfile } from "@/types/UserProfile";
-import { ModeToggle } from "@/components/ModeToggle";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Sidebar({ session }: { session: Session | null }) {
@@ -148,7 +147,6 @@ flex justify-between flex-col ${screenWidth >= 1024 ? "" : sidebarOpen ? "" : "-
                                         {user.username}
                                     </h3>
                                 </div>
-                                <ModeToggle side='top' />
                             </div>
                         </ProfileHoverCard>
                     ) : (
