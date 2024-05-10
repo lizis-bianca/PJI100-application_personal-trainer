@@ -55,7 +55,7 @@ export default function SettingPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div align="center">
+                <div data-align="center">
                   <ModeToggle side='right' />
                 </div>
               </CardContent>
