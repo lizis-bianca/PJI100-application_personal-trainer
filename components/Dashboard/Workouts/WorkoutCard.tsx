@@ -98,7 +98,7 @@ export default function WorkoutCard({
                         </Link>
                     </h4>
                     <p className='text-xs text-gray-500 dark:text-gray-400'>
-                        Created on: 25th Dec, 2023
+                        {new Date(workout.users.created_at).toLocaleDateString()} {new Date(workout.users.created_at).toLocaleTimeString()}
                     </p>
                 </div>
             </div>
