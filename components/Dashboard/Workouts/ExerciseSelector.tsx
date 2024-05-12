@@ -149,7 +149,6 @@ export default function ExerciseSelector({
             // If it's not selected, add it to the array, without removing the previous ones
             setSelectedExercises([...(selectedExercises || []), exercise]);
         }
-        console.log(selectedExercises);
     };
 
     const onSubmit = () => {
@@ -166,7 +165,6 @@ export default function ExerciseSelector({
                 ],
             })) || [];
 
-        console.log(selectedExercises);
 
         const previousExercises: Exercise[] = watch("exercises");
         // Merge the previous exercises with the new ones
@@ -180,7 +178,6 @@ export default function ExerciseSelector({
     const [scrollPosition, setScrollPosition] = useState(0);
 
     useEffect(() => {
-        console.log("data => ", data);
     }, [data]);
 
     return (
