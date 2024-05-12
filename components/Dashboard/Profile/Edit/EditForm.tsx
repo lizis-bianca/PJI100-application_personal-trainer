@@ -79,7 +79,6 @@ export function EditProfileForm({ user, setDrawerOpen, refetchUser }: EditProfil
         }
 
         const editedValues = compareUsers(currentUser, newUser);
-        console.log("Valores editados", editedValues);
         await editProfile({
             editedData: editedValues,
             userId: user?.id as string,

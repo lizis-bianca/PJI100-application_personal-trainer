@@ -60,7 +60,6 @@ export default function RegisterGymOwnerForm({ setShowForm }: RegisterMemberForm
 
     const submitData = (userData: RegisterGymOwnerForm) => {
         GymOwnerSignUp({ userData, setLoading, setSignUpSuccess });
-        console.log("This is the user data", userData);
     };
 
     const handleGoBack = () => {
