@@ -163,8 +163,6 @@ export default function NewWorkout() {
             };
         });
 
-        console.log(updatedExercises);
-
         const finalWorkout = {
             ...values,
             muscle_group: muscleGroup,
@@ -173,7 +171,6 @@ export default function NewWorkout() {
 
         const { data } = await axios.post("/api/workouts", finalWorkout);
         if (data.success === true) {
-            console.log(data);
             toast({
                 variant: "success",
                 title: `Treino ${values.title} criado com sucesso!`,
@@ -182,7 +179,6 @@ export default function NewWorkout() {
             router.push("/dashboard/workouts");
             setLoading(false);
         } else {
-            console.log(data);
             toast({
                 variant: "destructive",
                 title: "Ocorreu um erro ao criar o treino",
