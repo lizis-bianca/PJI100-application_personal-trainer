@@ -53,3 +53,36 @@ export async function GET(req: Request, { params }: { params: { slug: string } }
         return NextResponse.json("Invalid username parameter.", { status: 400 });
     }
 }
+
+export async function DELETE(req: Request, { params }: { params: { slug: string } }) {
+    const slug = params.slug;
+    const cookieStore = cookies();
+    const supabase = createRouteHandlerClient({ cookies: () => cookieStore });
+
+    if (slug === null) return new NextResponse("Missing username/uuid parameter.", { status: 400 });
+
+    try {
+        paramsParser.parse({ slug });
+        const uuidRegex =
+            /^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$/;
+
+        const isUuid = uuidRegex.test(slug);
+
+        let where = isUuid ? "id" : "username";
+
+        const { data, error } = await supabase
+            .from("users")
+            .delete()
+            .eq(where, slug)
+
+        if (error) {
+            console.error(error)
+            return NextResponse.json("Unexistent user", { status: 404 });
+        }
+
+        return NextResponse.json(data);
+    } catch (error) {
+        // Handle validation error
+        return NextResponse.json("Invalid username parameter.", { status: 400 });
+    }
+}

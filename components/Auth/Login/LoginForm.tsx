@@ -32,7 +32,6 @@ export default function LoginForm() {
 
     const submitData = (userData: LoginForm) => {
         LogIn({ userData, setLoading, router });
-        console.log("This is the user data", userData);
     };
 
     const renderForm = () => {

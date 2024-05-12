@@ -130,6 +130,7 @@ export default function Profile({
                         />
                     )}
                     <div className='flex flex-col gap-1'>
+                        <br/>
                         <span className=' text-muted-foreground text-sm flex gap-2 items-center '>
                             <Dumbbell className='inline-block scale-75' />
                             <span className='text-sm text-foreground'>Punch Fitness</span>
