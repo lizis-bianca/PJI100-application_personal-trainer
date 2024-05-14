@@ -61,7 +61,7 @@ export default function ProfileHoverCard({
                     <hr className='mt-3'></hr>
                     <div className='flex flex-col mt-3'>
                         <div className='flex gap-2'>
-                            <Badge
+                            {/* <Badge
                                 className='rounded-sm bg-accent dark:bg-accent/60'
                                 variant={"secondary"}
                             >
@@ -72,7 +72,7 @@ export default function ProfileHoverCard({
                                 variant={"secondary"}
                             >
                                 0 Seguindo
-                            </Badge>
+                            </Badge> */}
                         </div>
                         <p className='text-muted-foreground text-[13px] flex items-center mt-2 gap-2'>
                             <CalendarDays className='inline-block scale-75' /> Entrou em{" "}

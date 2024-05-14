@@ -221,6 +221,18 @@ export type Database = {
                     profile?: string | null;
                     username?: string | null;
                 };
+                Delete: {
+                    avatar_id?: string | null;
+                    banner_id?: string | null;
+                    bio?: string | null;
+                    created_at?: string | null;
+                    display_name?: string | null;
+                    email?: string | null;
+                    id?: string;
+                    location?: string | null;
+                    profile?: string | null;
+                    username?: string | null;
+                },
                 Relationships: [
                     {
                         foreignKeyName: "users_avatar_id_fkey";
@@ -259,6 +271,12 @@ export type Database = {
                     workout?: Json | null;
                 };
                 Update: {
+                    created_at?: string;
+                    id?: string;
+                    owner?: string | null;
+                    workout?: Json | null;
+                };
+                Delete: {
                     created_at?: string;
                     id?: string;
                     owner?: string | null;
