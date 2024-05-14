@@ -5,7 +5,6 @@ import Link from "next/link";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { DBWorkout, Workout } from "@/types/Workout";
-import * as z from "zod";
 import WorkoutCard from "@/components/Dashboard/Workouts/WorkoutCard";
 import { motion } from "framer-motion";
 import { Skeleton } from "@/components/ui/skeleton";

@@ -13,7 +13,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import {
     ArrowRight,
     ChevronRight,
-    Compass,
+    ArrowLeft,
     Dumbbell,
     Info,
     Loader2,
@@ -25,7 +25,7 @@ import Image from "next/image";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { z } from "zod";
-
+import Link from "next/link"
 import {
     Form,
     FormControl,
@@ -221,10 +221,12 @@ export default function NoGym() {
                     </CardContent>
 
                     <CardFooter className='items-center justify-end gap-2'>
+                    <Link href="/dashboard/explore">
                         <Button variant={"outline"}>
-                            Explorar
-                            <Compass className='w-4 h-4 inline-block ml-1' />
+                         <ArrowLeft className='w-4 h-4 inline-block ml-1' />
+                           Voltar
                         </Button>
+                    </Link>
 
                         <Button disabled={!isValid || loading} type='submit' form='formCode'>
                             {loading && (

@@ -7,7 +7,6 @@ export async function SignOut({ router }: { router: AppRouterInstance }) {
     const { error } = await supabase.auth.signOut();
 
     if (!error) {
-        console.log("User logged out");
         router.push("/");
     } else {
         console.log(error);

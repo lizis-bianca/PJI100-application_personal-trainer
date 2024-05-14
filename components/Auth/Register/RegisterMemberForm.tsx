@@ -55,7 +55,6 @@ export default function RegisterMemberForm({ setShowForm }: RegisterMemberFormPr
 
     const submitData = (userData: RegisterMemberForm) => {
         MemberSignUp({ userData, setLoading, setSignUpSuccess });
-        console.log("This is the user data", userData);
     };
 
     const handleGoBack = () => {

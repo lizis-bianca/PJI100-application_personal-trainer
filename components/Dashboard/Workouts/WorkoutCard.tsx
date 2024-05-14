@@ -22,14 +22,30 @@ import {
     TableBody,
     Table,
 } from "@/components/ui/table";
+import { Dispatch, SetStateAction, useState } from "react";
+import axios from "axios";
+import { useToast } from "@/components/ui/use-toast";
+import { useRouter } from "next/navigation";
+import { useTimestampConverter } from "@/lib/hooks/useTimestampConvert";
+
+type WorkourtPageProps = {
+    params: {
+        slug: string;
+    };
+};
+
 
 export default function WorkoutCard({
     workout,
-    className,
+    className
 }: {
     workout: DBWorkout;
     className?: string;
 }) {
+
+    const { toast } = useToast();
+    const router = useRouter();
+
     type DifficultiesMap = {
         [key: string]: string;
     };
@@ -41,6 +57,19 @@ export default function WorkoutCard({
         };
         return difficulties[level] || "#8a2be2";
     };
+
+    async function deleteWorkout({ params }: WorkourtPageProps) {
+        const workout = await axios.delete(`/api/workouts/${params.slug}`);
+        console.log('workout', workout)
+        if (workout.status === 200){
+            toast({
+                variant: "success",
+                title: `Treino ${params.slug} deletado com sucesso!`,
+                description: `Você não irá mais visualizá-lo na sua página de treinos.`,
+            });
+            router.push("/dashboard/workouts");
+        }
+    }
 
     return (
         <GlowingCard
@@ -66,7 +95,7 @@ export default function WorkoutCard({
                         <Edit className='scale-75' />
                         Reordenar{" "}
                     </DropdownMenuItem>
-                    <DropdownMenuItem className='flex items-center gap-2 text-destructive'>
+                    <DropdownMenuItem className='flex items-center gap-2 text-destructive' onClick={() => deleteWorkout({ params: { slug: workout.id } })}>
                         <Trash className='scale-75' />
                         Deletar{" "}
                     </DropdownMenuItem>
@@ -98,7 +127,7 @@ export default function WorkoutCard({
                         </Link>
                     </h4>
                     <p className='text-xs text-gray-500 dark:text-gray-400'>
-                        Created on: 25th Dec, 2023
+                        {useTimestampConverter(workout.created_at)}
                     </p>
                 </div>
             </div>
