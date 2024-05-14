@@ -16,16 +16,12 @@ export async function DELETE(req: Request, { params }: { params: { slug: string 
             .delete()
             .eq("id", slug)
 
-            console.log('DELETE Slug data ', data)
-
         if (error) {
-            console.log('DELETE Slug error ', error)
             return NextResponse.json({ success: false, error });
         }
 
-        return NextResponse.json({ success: true }, { status: 204 });
+        return NextResponse.json({ success: true });
     } catch (error) { 
-        console.log('DELETE Slug error catch ', error)
         return NextResponse.json(
             {
                 success: false,

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import RoundLogo from "../../public/g_Icon.png";
 import GymnLogo from "../ui/Icons/GymnLogo";
-import { GithubIcon, TwitterIcon } from "lucide-react";
+import { GithubIcon } from "lucide-react";
 import Link from "next/link";
 
 export default function Footer() {
@@ -61,21 +61,14 @@ export default function Footer() {
                 <div className='sm:flex sm:items-center sm:justify-between'>
                     <span className='text-sm text-muted-foreground sm:text-center '>
                         © 2024{" "}
-                        <a href='https://github.com/' className='hover:underline'>
+                        <a href='#' className='hover:underline'>
                             DRP04-PJI110-SALA-003GRUPO-009
                         </a>
                         . All Rights Reserved.
                     </span>
                     <div className='flex mt-4 space-x-5 sm:justify-center sm:mt-0'>
                         <a
-                            href='#'
-                            className='text-gray-500 hover:text-gray-900 dark:hover:text-white'
-                        >
-                            <TwitterIcon className='lg:scale-90 scale-75' />
-                            <span className='sr-only'>Twitter page</span>
-                        </a>
-                        <a
-                            href='#'
+                            href='https://github.com/lizis-bianca/PJI100-application_personal-trainer-copy'
                             className='text-gray-500 hover:text-gray-900 dark:hover:text-white'
                         >
                             <GithubIcon className='lg:scale-90 scale-75' />

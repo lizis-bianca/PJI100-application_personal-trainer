@@ -210,3 +210,16 @@
     width: 100%;
     z-index: 2;
 }
+
+.shadow {
+    position: absolute;
+    background: rgb(158, 94, 171);
+    border-radius: 24px;
+    rotate: 35deg;
+  
+    width: 200px;
+    top: 200px;
+    height: 400px;
+    filter: blur(150px);
+    animation: shadow-slide infinite 4s linear alternate;
+  }
