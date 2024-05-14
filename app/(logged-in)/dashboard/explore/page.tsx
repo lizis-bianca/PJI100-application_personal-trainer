@@ -39,7 +39,7 @@ export default function Explore() {
         </div>
       </div>
       <div className="z-10">
-        <ExploreCards/>
+        {/* <ExploreCards/> */}
       </div>
 
       <div className="shadow"></div>
