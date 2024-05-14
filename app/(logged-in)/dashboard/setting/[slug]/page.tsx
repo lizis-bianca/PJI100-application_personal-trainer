@@ -41,7 +41,7 @@ export default function SettingPage({ params }: UserPageProps) {
 
     async function deleteUser({ params }: UserPageProps) {
       const user = await axios.delete(`/api/users/${params.slug}`);
-      if (user.status === 204){
+      if (user.status === 200){
           toast({
               variant: "success",
               title: `Usuário ${params.slug} deletado com sucesso!`,
