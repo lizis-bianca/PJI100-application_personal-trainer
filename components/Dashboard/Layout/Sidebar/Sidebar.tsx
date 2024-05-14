@@ -3,7 +3,6 @@
 import {
     Bell,
     Compass,
-    Layers,
     User,
     Activity,
     Dumbbell,
