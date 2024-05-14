@@ -45,7 +45,6 @@ export default function BottomNav({ pathname }: { pathname: string }) {
             id='bottomnav'
             className='w-full h-20 fixed z-[20] bottom-0 bg-card rounded-t-3xl flex items-center justify-around px-5'
         >
-            <NavLink pathname={pathname} href={"home"} text={"Home"} icon={<Home />} />
             <NavLink pathname={pathname} href={"explore"} text={"Explorar"} icon={<Search />} />
             <NavLink pathname={pathname} href={"workouts"} text={"Treinos"} icon={<Dumbbell />} />
             <NavLink pathname={pathname} href={"gym"} text={"Academia"} icon={<Warehouse />} />
