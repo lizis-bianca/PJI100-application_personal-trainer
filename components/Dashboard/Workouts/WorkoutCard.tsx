@@ -61,7 +61,7 @@ export default function WorkoutCard({
     async function deleteWorkout({ params }: WorkourtPageProps) {
         const workout = await axios.delete(`/api/workouts/${params.slug}`);
         console.log('workout', workout)
-        if (workout.status === 204){
+        if (workout.status === 200){
             toast({
                 variant: "success",
                 title: `Treino ${params.slug} deletado com sucesso!`,
