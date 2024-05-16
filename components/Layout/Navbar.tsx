@@ -2,8 +2,7 @@
 
 import { ModeToggle } from "../ModeToggle";
 import { Button } from "../ui/button";
-import { Github, LogIn, User } from "lucide-react";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import {  LogIn, User } from "lucide-react";
 import GymnLogo from "../ui/Icons/GymnLogo";
 import Link from "next/link";
 import { useState, useEffect } from "react";
