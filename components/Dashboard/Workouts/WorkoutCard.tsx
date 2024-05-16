@@ -1,4 +1,3 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -12,8 +11,7 @@ import {
 import GlowingCard from "@/components/ui/glowingCard";
 import { cn } from "@/lib/utils";
 import { DBWorkout } from "@/types/Workout";
-import { Dumbbell, Edit, MoreVertical, Trash } from "lucide-react";
-import Link from "next/link";
+import { Edit, MoreVertical, Trash } from "lucide-react";
 import {
     TableHead,
     TableRow,
@@ -22,18 +20,16 @@ import {
     TableBody,
     Table,
 } from "@/components/ui/table";
-import { Dispatch, SetStateAction, useState } from "react";
 import axios from "axios";
 import { useToast } from "@/components/ui/use-toast";
-import { useRouter } from "next/navigation";
 import { useTimestampConverter } from "@/lib/hooks/useTimestampConvert";
+import WorkoutCardTimer from "./WorkoutCardTimer";
 
 type WorkourtPageProps = {
     params: {
         slug: string;
     };
 };
-
 
 export default function WorkoutCard({
     workout,
@@ -42,36 +38,22 @@ export default function WorkoutCard({
     workout: DBWorkout;
     className?: string;
 }) {
-
     const { toast } = useToast();
-    const router = useRouter();
-
-    type DifficultiesMap = {
-        [key: string]: string;
-    };
-    const difficultyColor = ({ level }: { level: string }) => {
-        const difficulties: DifficultiesMap = {
-            Iniciante: "#22c55e",
-            Intermediário: "#f59e0b",
-            Avançado: "#ef4444",
-        };
-        return difficulties[level] || "#8a2be2";
-    };
 
     async function deleteWorkout({ params }: WorkourtPageProps) {
         const workout = await axios.delete(`/api/workouts/${params.slug}`);
-        console.log('workout', workout)
         if (workout.status === 200){
             toast({
                 variant: "success",
                 title: `Treino ${params.slug} deletado com sucesso!`,
                 description: `Você não irá mais visualizá-lo na sua página de treinos.`,
             });
-            router.push("/dashboard/workouts");
         }
+        window.location.reload();
     }
 
     return (
+        <>
         <GlowingCard
             className={cn(
                 "dark:hover:bg-card relative group w-full h-[30rem] bg-card space-y-1 p-6",
@@ -112,20 +94,7 @@ export default function WorkoutCard({
                 ))}
             </span>
             <div className='flex items-start space-x-4 pt-2'>
-                <Avatar>
-                    <AvatarImage src={`/api/users/${workout.owner}/avatar?cache=1`} />
-                    <AvatarFallback>?</AvatarFallback>
-                </Avatar>
                 <div className='space-y-1'>
-                    <h4 className='text-sm font-semibold w-full overflow-clip truncate'>
-                        Criado por{" "}
-                        <Link
-                            href={`/dashboard/profile/${workout.users.username}`}
-                            className='truncate overflow-clip underline'
-                        >
-                            {workout.users.username}
-                        </Link>
-                    </h4>
                     <p className='text-xs text-gray-500 dark:text-gray-400'>
                         {useTimestampConverter(workout.created_at)}
                     </p>
@@ -165,10 +134,8 @@ export default function WorkoutCard({
                     </Table>
                 </div>
             </section>
-            <Button className='w-[calc(100%-(2*1.5rem))] absolute z-[1] bottom-0 -translate-y-6'>
-                Iniciar treino
-                <Dumbbell className='scale-75 ml-2' />
-            </Button>
+            <WorkoutCardTimer workout={workout}/>
         </GlowingCard>
+       </>
     );
 }
