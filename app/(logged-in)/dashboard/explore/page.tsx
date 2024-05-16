@@ -1,9 +1,24 @@
 "use client";
 import { GithubIcon } from "lucide-react";
-import { ExploreCards } from "@/components/Dashboard/Explore/ExploreImage";
 import { HowItWorks } from "@/components/Dashboard/Explore/HowItWork";
+import { useSession } from "@/lib/supabase/useSession";
+import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
 
 export default function Explore() {
+  const session = useSession();
+
+    const { data } = useQuery({
+        queryKey: ["explore"], //key and params to define the query
+        queryFn: () => {
+            return axios.get(`/api/users/${session?.user.id}`).then((res) => res.data);
+        },
+        retry: false,
+        refetchOnWindowFocus: false,
+    });
+
+    console.log('aa-> ',data)
+
     return (
       <>
         <section className="container grid lg:grid-cols-2 place-items-center py-20 md:py-32 gap-10">
@@ -30,16 +45,13 @@ export default function Explore() {
         <div className="space-y-4 md:space-y-0 md:space-x-4">
           <a
             rel="noreferrer noopener"
-            href="https://github.com/lizis-bianca/PJI100-application_personal-trainer-copy"
+            href="https://github.com/lizis-bianca/PJI100-application_personal-trainer"
             target="_blank"
             className='w-full md:w-1/3'
           >
             <GithubIcon className="ml-2 w-5 h-5" />
           </a>
         </div>
-      </div>
-      <div className="z-10">
-        {/* <ExploreCards/> */}
       </div>
 
       <div className="shadow"></div>

@@ -39,7 +39,7 @@ export async function GET(req: NextRequest) {
                 );
             }
             const imageResponse = await fetch(
-                `https://xqevbfvlbdclrqeldnmm.supabase.co/storage/v1/object/public/banners/${
+                `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/banners/${
                     data.username
                 }?timestamp=${Date.now()}`
             );
@@ -61,7 +61,7 @@ export async function GET(req: NextRequest) {
         }
 
         const imageResponse = await fetch(
-            `https://xqevbfvlbdclrqeldnmm.supabase.co/storage/v1/object/public/banners/${slug}?timestamp=${Date.now()}`
+            `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/banners/${slug}?timestamp=${Date.now()}`
         );
         // Check if the image was fetched successfully
         if (imageResponse.ok) {

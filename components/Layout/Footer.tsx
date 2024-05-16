@@ -68,7 +68,7 @@ export default function Footer() {
                     </span>
                     <div className='flex mt-4 space-x-5 sm:justify-center sm:mt-0'>
                         <a
-                            href='https://github.com/lizis-bianca/PJI100-application_personal-trainer-copy'
+                            href='https://github.com/lizis-bianca/PJI100-application_personal-trainer'
                             className='text-gray-500 hover:text-gray-900 dark:hover:text-white'
                         >
                             <GithubIcon className='lg:scale-90 scale-75' />
