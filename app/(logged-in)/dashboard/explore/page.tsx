@@ -17,8 +17,7 @@ export default function Explore() {
         refetchOnWindowFocus: false,
     });
 
-    console.log('aa-> ',data)
-
+    // TODO: adicionar versão profile gymOwner
     return (
       <>
         <section className="container grid lg:grid-cols-2 place-items-center py-20 md:py-32 gap-10">
