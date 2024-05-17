@@ -16,7 +16,7 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { Filter, ListOrdered, Search } from "lucide-react";
+import { Filter, Delete, Search } from "lucide-react";
 import { equipments, muscles } from "@/lib/filters";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -187,6 +187,17 @@ export const ExerciseListFilter = () => {
                     </DropdownMenuSub>
                 </DropdownMenuContent>
             </DropdownMenu>
+
+            {
+                filterAmount.current > 0 && (
+                    <div>
+                        <Button variant={"outline"}>
+                        Limpar Filtros
+                        <Delete className='w-5 h-5 inline-block ml-2' />
+                        </Button> 
+                    </div>
+                )
+            }
 
             {/* Pesquisa */}
             <div className='relative'>

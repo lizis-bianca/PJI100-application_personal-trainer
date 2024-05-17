@@ -8,7 +8,7 @@ import ExerciseListDisplay, {
     ExerciseListFilter,
 } from "@/components/Dashboard/Exercises/ExerciseListDisplay";
 
-//TODO: Add 'remove filter' button, animating x to right, text to left
+//TODO: Add 'remove filter' button, text to left
 export default function Exercises() {
     const searchParams = useSearchParams();
 
