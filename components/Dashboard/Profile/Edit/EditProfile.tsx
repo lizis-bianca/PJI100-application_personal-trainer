@@ -1,16 +1,11 @@
 import { Button } from "@/components/ui/button";
 import {
     Sheet,
-    SheetHeader,
-    SheetDescription,
-    SheetTitle,
     SheetTrigger,
-    SheetContent,
-    SheetClose,
+    SheetContent
 } from "@/components/ui/sheet";
 import { UserProfile } from "@/types/UserProfile";
 import { useState } from "react";
-import { useGetScreenWidth } from "@/lib/hooks/useGetScreenWidth";
 import { EditProfileForm } from "./EditForm";
 import { cn } from "@/lib/utils";
 
