@@ -40,14 +40,15 @@ export default function SettingPage({ params }: UserPageProps) {
     });
 
     async function deleteUser({ params }: UserPageProps) {
-      const user = await axios.delete(`/api/users/${params.slug}`);
-      if (user.status === 200){
-          toast({
-              variant: "success",
-              title: `Usuário ${params.slug} deletado com sucesso!`,
-              description: `Você não irá mais visualizá-lo seu perfil e seus treinos.`,
-          });
-          // router.push("/dashboard/workouts");
+      if (params.slug !== process.env.NEXT_PUBLIC_ADMIN_UUID){
+        const user = await axios.delete(`/api/users/${params.slug}`);
+        if (user.status === 200){
+            toast({
+                variant: "success",
+                title: `Usuário ${params.slug} deletado com sucesso!`,
+                description: `Você não irá mais visualizá-lo seu perfil e seus treinos.`,
+            });
+        }
       }
   }
 
@@ -86,7 +87,7 @@ export default function SettingPage({ params }: UserPageProps) {
               </CardHeader>
               <CardContent>
                 <AlertDialog>
-                  <AlertDialogTrigger style={{color: "red"}}>Excluir sua conta</AlertDialogTrigger>
+                  <AlertDialogTrigger style={{ color: "red" }}>Excluir sua conta</AlertDialogTrigger>
                   <AlertDialogContent>
                     <AlertDialogHeader>
                       <AlertDialogTitle>Você tem certeza?</AlertDialogTitle>
@@ -96,7 +97,7 @@ export default function SettingPage({ params }: UserPageProps) {
                     </AlertDialogHeader>
                     <AlertDialogFooter>
                       <AlertDialogCancel>Cancelar</AlertDialogCancel>
-                      <AlertDialogAction onClick={() => deleteUser({params: {slug: data.id}})}>Continuar</AlertDialogAction>
+                      <AlertDialogAction onClick={() => deleteUser({ params: {slug: data.id} })}>Continuar</AlertDialogAction>
                     </AlertDialogFooter>
                   </AlertDialogContent>
                 </AlertDialog>
