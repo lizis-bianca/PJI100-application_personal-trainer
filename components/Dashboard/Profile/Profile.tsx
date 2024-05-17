@@ -6,14 +6,13 @@ import { SignOut } from "@/lib/auth/signOut";
 import { Session } from "@supabase/auth-helpers-nextjs";
 import { Banner } from "./reusable/BannerWithActions";
 import EditProfile from "./Edit/EditProfile";
-import { Dumbbell, LogOut, MapPin, Users2 } from "lucide-react";
+import { Dumbbell, LogOut, MapPin } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { UserProfile } from "@/types/UserProfile";
 import { useTimestampConverter } from "@/lib/hooks/useTimestampConvert";
 import { useQueryClient } from "@tanstack/react-query";
 import { ProfilePicture } from "./reusable/ProfilePicture";
-
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Edit, X } from "lucide-react";
 import UploadUI from "./Upload/UploadUI";
