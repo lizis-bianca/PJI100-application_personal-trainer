@@ -26,8 +26,8 @@ export default function WorkoutCardTimer({ workout }: { workout: DBWorkout }) {
             screenWidth={screenWidth}
             className=''>
             <div style={{ textAlign: "center" }}>
-                <h1><b>Praticando : {workout.workout.title}</b></h1>
-                <p>{workout.workout.description}</p>
+                <h1><b>Praticando : <span style={{ color: '#8a2be2' }}>{ workout.workout.title }</span></b></h1>
+                <p>{ workout.workout.description }</p>
                 <TimerRecord/>
             </div>
         </DrawerContent>
