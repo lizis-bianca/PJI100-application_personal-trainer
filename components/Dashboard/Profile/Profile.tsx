@@ -6,17 +6,17 @@ import { SignOut } from "@/lib/auth/signOut";
 import { Session } from "@supabase/auth-helpers-nextjs";
 import { Banner } from "./reusable/BannerWithActions";
 import EditProfile from "./Edit/EditProfile";
-import { Dumbbell, LogOut, MapPin, Users2 } from "lucide-react";
+import { Dumbbell, LogOut, MapPin } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { UserProfile } from "@/types/UserProfile";
 import { useTimestampConverter } from "@/lib/hooks/useTimestampConvert";
 import { useQueryClient } from "@tanstack/react-query";
 import { ProfilePicture } from "./reusable/ProfilePicture";
-
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Edit, X } from "lucide-react";
 import UploadUI from "./Upload/UploadUI";
+import { ChartMinutes } from "@/components/ui/chartMinutes";
 
 export default function Profile({
     user,
@@ -133,7 +133,7 @@ export default function Profile({
                         <br/>
                         <span className=' text-muted-foreground text-sm flex gap-2 items-center '>
                             <Dumbbell className='inline-block scale-75' />
-                            <span className='text-sm text-foreground'>Punch Fitness</span>
+                            <span className='text-sm text-foreground'>Novato</span>
                         </span>
                         {user?.location && (
                             <span className=' text-muted-foreground text-sm flex gap-2 items-center '>
@@ -150,7 +150,9 @@ export default function Profile({
                 <div
                     id='posts'
                     className='w-full xl:bg-card h-[90rem] rounded-2xl xl:border-border xl:border-[1px] xl:shadow-lg'
-                ></div>
+                >
+                     <ChartMinutes/>
+                </div>
             </div>
         </div>
     );

@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import * as z from "zod";
 import { cookies } from "next/headers";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
-import { env } from "process";
 
 const paramsParser = z.object({
     slug: z
@@ -33,7 +32,6 @@ export async function GET(req: NextRequest) {
                 .eq("id", slug)
                 .single();
 
-            console.log('avatar-> ', data)
             if (error) {
                 return NextResponse.json(
                     { success: false, error: "Unexistent user" },

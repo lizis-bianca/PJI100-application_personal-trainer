@@ -8,8 +8,8 @@ import {
     DialogTitle,
 } from "@/components/ui/dialog";
 import { Info, MoreVertical, Plus, Shuffle, Trash } from "lucide-react";
-import { type Workout, Workout as ZodWorkout, type Exercise } from "@/types/Workout";
-import { AnimatePresence, LayoutGroup, PanInfo, motion, useDragControls } from "framer-motion";
+import { Workout as ZodWorkout, type Exercise } from "@/types/Workout";
+import { AnimatePresence, PanInfo, motion, useDragControls } from "framer-motion";
 
 import {
     DropdownMenu,

@@ -1,13 +1,10 @@
 import { type Exercise } from "@/types/Workout";
 import { Badge } from "@/components/ui/badge";
 import GlowingCard from "@/components/ui/glowingCard";
-import { useGetScreenWidth } from "@/lib/hooks/useGetScreenWidth";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import { useMediaQuery } from "@/lib/hooks/useMediaQuery";
-import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import GymnLogo from "@/public/gymn_BlackGLogo.svg";
 
 export interface APIExercise extends Exercise {
     created_by: string;
