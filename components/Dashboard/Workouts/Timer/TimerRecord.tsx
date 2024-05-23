@@ -20,7 +20,7 @@ export default function TimerRecord() {
     <div style={{ textAlign: "center", display: "inline-flex"}} className='gap-2'>
         <Button onClick={start}>Iniciar</Button>
         <Button onClick={pause}>Pausar</Button>
-        <Button onClick={reset}>Resetar</Button>
+        <Button onClick={() => reset}>Resetar</Button>
     </div>
   </div>
   );
