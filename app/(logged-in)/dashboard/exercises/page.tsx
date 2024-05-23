@@ -1,21 +1,14 @@
 "use client";
-
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { motion } from "framer-motion";
-import ExerciseCard, { APIExercise } from "@/components/Dashboard/Exercises/ExerciseCard";
-import Filters from "@/components/Dashboard/Exercises/Filters";
 import { Skeleton } from "@/components/ui/skeleton";
-import Link from "next/link";
 import AddExercise from "@/components/Dashboard/Exercises/AddExercise/AddExercise";
-import { useRouter, useSearchParams } from "next/navigation";
-import { Input } from "@/components/ui/input";
-import { Search } from "lucide-react";
+import { useSearchParams } from "next/navigation";
 import ExerciseListDisplay, {
     ExerciseListFilter,
 } from "@/components/Dashboard/Exercises/ExerciseListDisplay";
 
-//TODO: Add 'remove filter' button, animating x to right, text to left
+//TODO: Add 'remove filter' button, text to left
 export default function Exercises() {
     const searchParams = useSearchParams();
 
