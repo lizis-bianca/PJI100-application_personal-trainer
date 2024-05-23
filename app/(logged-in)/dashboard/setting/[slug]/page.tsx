@@ -46,7 +46,7 @@ export default function SettingPage({ params }: UserPageProps) {
             toast({
                 variant: "success",
                 title: `Usuário ${params.slug} deletado com sucesso!`,
-                description: `Você não irá mais visualizá-lo seu perfil e seus treinos.`,
+                description: `Você não irá mais visualizá-lo em seu perfil e seus treinos.`,
             });
         }
       }

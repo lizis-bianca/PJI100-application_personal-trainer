@@ -49,6 +49,8 @@
         --g_lightpurple: 270 100% 67%;
         --g_purple: 270 100% 63%;
         --g_darkpurple: 270 76% 46%;
+        
+        --charts-primary: hsl(262.1 83.3% 57.8%)
     }
 
     .dark {
